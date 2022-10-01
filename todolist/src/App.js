@@ -28,15 +28,18 @@ function App() {
       <h1>ToDoList</h1>
       <h3>Add ToDo</h3>
       <form>
-      Description: <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
-      Date: <input type="text" name="date" value={toDo.date} onChange={inputChanged}/>
-      <button onClick={addTodo}>Add</button>
+        <label>Description: </label>
+          <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
+        <label>Date: </label>
+          <input type="text" name="date" value={toDo.date} onChange={inputChanged}/>
+        <button onClick={addTodo}>Add</button>
       </form>
       <table className="center">
         <thead>
           <tr>
             <th>Date</th>
             <th>Description</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

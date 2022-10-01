@@ -40,20 +40,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+table {
+  border-collapse: collapse;
+}
 
 table, th, td {
   text-align: center;
-  padding: 5px
+  padding: 10px
 }
-table td, table th {
-  padding: 10px;  
-}
-
-table tbody tr:nth-child(even){background-color: #f2f2f2;}
-table tbody tr:hover {background-color: #ddd;}
 
 table th {
   padding-top: 10px;
   padding-bottom: 10px;
   color: black;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
 }
