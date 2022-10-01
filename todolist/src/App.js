@@ -12,7 +12,9 @@ function App() {
   const addTodo = (event) => {
     event.preventDefault();
     setTodos([...todos, toDo]);
-    console.log(todos);
+    //console.log(todos);
+    //lomakekentän tyhjennys
+    setToDo({date:'', desc:''});
   }
 
   function deleteToDo(index) {
@@ -20,13 +22,13 @@ function App() {
      return i !== index;
     });
     setTodos(removeItem);
-    console.log(removeItem);
+    //console.log(removeItem);
   }
 
   return (
     <div className="App">
       <h1>ToDoList</h1>
-      <h3>Add ToDo</h3>
+      <h4>Add ToDo:</h4>
       <form>
         <label>Description: </label>
           <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
