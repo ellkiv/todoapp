@@ -12,22 +12,28 @@ function App() {
   const addTodo = (event) => {
     event.preventDefault();
     setTodos([...todos, toDo]);
+    console.log(todos);
+  }
+
+  function deleteToDo(index) {
+    const removeItem = todos.filter((toDo, i) => {
+     return i !== index;
+    });
+    setTodos(removeItem);
+    console.log(removeItem);
   }
 
   return (
     <div className="App">
       <h1>ToDoList</h1>
-      <table>
+      <h3>Add ToDo</h3>
+      <form>
+      Description: <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
+      Date: <input type="text" name="date" value={toDo.date} onChange={inputChanged}/>
+      <button onClick={addTodo}>Add</button>
+      </form>
+      <table className="center">
         <thead>
-          <tr>
-            <th>
-              Description: <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
-            </th>
-            <th>
-              Date: <input type="text" name="date" value={toDo.date} onChange={inputChanged}/>
-              <button onClick={addTodo}>Add</button>
-            </th>
-          </tr>
           <tr>
             <th>Date</th>
             <th>Description</th>
@@ -35,10 +41,11 @@ function App() {
         </thead>
         <tbody>
           {
-            todos.map((todo, index) =>
+            todos.map((toDo, index) =>
               <tr key={index}>
-                <td>{todo.date}</td>
-                <td>{todo.desc}</td>
+                <td>{toDo.date}</td>
+                <td>{toDo.desc}</td>
+                <td><button onClick={() => deleteToDo(index)}>Delete</button></td>
               </tr>
             )
           }  

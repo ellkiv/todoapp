@@ -36,10 +36,24 @@
     transform: rotate(360deg);
   }
 }
-table, th, td {
-  text-align: left;
-  padding: 2px
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
-th {
-  text-align: left;
+
+table, th, td {
+  text-align: center;
+  padding: 5px
+}
+table td, table th {
+  padding: 10px;  
+}
+
+table tbody tr:nth-child(even){background-color: #f2f2f2;}
+table tbody tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
 }
