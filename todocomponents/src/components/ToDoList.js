@@ -4,26 +4,15 @@ export default function ToDoList(props){
 
     return(
         <div>
-            <table className="center">
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    props.todos.map((toDo, index) =>
-                    <tr key={index}>
-                        <td>{toDo.date}</td>
-                        <td>{toDo.desc}</td>
-                        <td><button onClick={props.deleteToDo}>Delete</button></td>
-                    </tr>
-                    )
-                }  
-                </tbody>
-            </table>
+        <form>
+        <h4>Add ToDo:</h4>
+            <label>Description: </label>
+            <input type="text" name="desc" value={props.toDo.desc} onChange={props.inputChanged}/>
+            <label>Date: </label>
+            <input type="text" name="date" value={props.toDo.date} onChange={props.inputChanged}/>
+            <button onClick={props.addTodo}>Add</button>
+        </form>
+
         </div>
     );
 }

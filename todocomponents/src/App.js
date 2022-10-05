@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
-import ToDoTable from './components/ToDoList'
+import ToDoTable from './components/ToDoTable'
+import ToDoForm from './components/ToDoList'
 
 function App() {
   const [toDo, setToDo] = useState({date:'', desc:''});
@@ -23,21 +24,14 @@ function App() {
      return i !== index;
     });
     setTodos(removeItem);
-    //console.log(removeItem);
+    console.log(index);
   }
 
   return (
     <div className="App">
       <h1>ToDoList</h1>
-      <h4>Add ToDo:</h4>
-      <form>
-        <label>Description: </label>
-          <input type="text" name="desc" value={toDo.desc} onChange={inputChanged}/>
-        <label>Date: </label>
-          <input type="text" name="date" value={toDo.date} onChange={inputChanged}/>
-        <button onClick={addTodo}>Add</button>
-      </form>
-      <ToDoTable todos={todos} deleteToDo={() => deleteToDo}/>
+      <ToDoForm toDo={toDo} inputChanged={inputChanged} addTodo={addTodo} />
+      <ToDoTable todos={todos} deleteToDo={deleteToDo} />
     </div>
   );
 }
